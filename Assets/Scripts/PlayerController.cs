@@ -17,15 +17,19 @@ namespace Learn.PlayerController
         public float acceleration = 10f;
 
         [Header("Toggles")]
-        public bool FancyMovement = false;
-        public bool BasicJumping = false;
-        public bool WallJumping = false;
-        public bool WallSliding = false;
+        public bool FancyMovementEnabled = false;
+        public bool BasicJumpingEnabled = false;
+        public bool FancyJumpingEnabled = false;
+        public bool WallJumpingEnabled = false;
+        public bool WallSlidingEnabled = false;
+
+        [Header("Fall Options")]
+        public float fallMultiplier = 2.5f;
+        public float lowJumpMultiplier = 2f;
 
 
         public bool canMove = true;
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Awake()
         {
             _playerMovementInput = GetComponent<PlayerMovementInput>();
@@ -36,19 +40,30 @@ namespace Learn.PlayerController
         // Update is called once per frame
         void Update()
         {
+
             if (_playerMovementInput.JumpPressed)
             {
-                if (_playerCollision.onGround && BasicJumping)
+                if (_playerCollision.onGround && BasicJumpingEnabled)
                     Jump(Vector2.up);
-                else if (_playerCollision.onWall && WallJumping)
+                else if (_playerCollision.onWall && WallJumpingEnabled)
                     WallJump();
             }
 
             if (_playerCollision.onWall && !_playerCollision.onGround)
             {
-                if (_playerMovementInput.MovementInput.x != 0 && WallSliding)
+                if (_playerMovementInput.MovementInput.x != 0)
                     WallSlide();
             }
+
+            #region AdjustingFallSpeed
+            if (FancyJumpingEnabled)
+            {
+                if (_rb.linearVelocityY < 0)
+                    _rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+                else if (_rb.linearVelocityY > 0 && !_playerMovementInput.JumpHeld)
+                    _rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+            }
+            #endregion
         }
 
         private void FixedUpdate()
@@ -60,7 +75,8 @@ namespace Learn.PlayerController
         {
             if (!canMove)
                 return;
-            if (!FancyMovement)
+
+            if (!FancyMovementEnabled)
                 _rb.linearVelocity = new Vector2(direction.x * speed, _rb.linearVelocity.y);
             else
                 _rb.linearVelocity = Vector2.Lerp(_rb.linearVelocity, (new Vector2(direction.x * speed, _rb.linearVelocity.y)), acceleration * Time.deltaTime);
@@ -72,12 +88,15 @@ namespace Learn.PlayerController
             //counteracting falling speed to help ensure our jump works as expected
             if (_rb.linearVelocityY < 0)
                 force -= _rb.linearVelocityY;
-            _rb.linearVelocity += direction * force;
+            _rb.AddForce(direction*force, ForceMode2D.Impulse);
         }
 
         private void WallSlide()
         {
-            _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, -slideSpeed);
+            if (!canMove)
+                return;
+            if (WallSlidingEnabled)
+                _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, -slideSpeed);
         }
 
         private void WallJump()

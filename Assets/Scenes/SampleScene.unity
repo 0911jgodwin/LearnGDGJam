@@ -489,7 +489,6 @@ GameObject:
   - component: {fileID: 1381457857}
   - component: {fileID: 1381457856}
   - component: {fileID: 1381457858}
-  - component: {fileID: 1381457859}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -559,7 +558,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a96f03ff0cc846843829b04e39a24296, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -656,6 +655,13 @@ MonoBehaviour:
   jumpForce: 8
   slideSpeed: 3
   acceleration: 5
+  FancyMovement: 1
+  BasicJumping: 1
+  FancyJumping: 1
+  WallJumping: 1
+  WallSliding: 1
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
   canMove: 1
 --- !u!114 &1381457857
 MonoBehaviour:
@@ -692,20 +698,6 @@ MonoBehaviour:
   bottomOffset: {x: 0, y: -0.5}
   leftOffset: {x: -0.5, y: 0}
   rightOffset: {x: 0.5, y: 0}
---- !u!114 &1381457859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1381457851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92bf3bf8e6434db4386ea866d6acb48c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 2
 --- !u!1 &1389195613
 GameObject:
   m_ObjectHideFlags: 0
