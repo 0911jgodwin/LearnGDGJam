@@ -119,6 +119,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &190606680
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1390730677767878798, guid: 9dfc7fa33187ebe4e9aaa5f0b64067c0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 544.53217
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390730677767878798, guid: 9dfc7fa33187ebe4e9aaa5f0b64067c0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 497.89035
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390730677767878798, guid: 9dfc7fa33187ebe4e9aaa5f0b64067c0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.7311199
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390730677767878798, guid: 9dfc7fa33187ebe4e9aaa5f0b64067c0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390730677767878798, guid: 9dfc7fa33187ebe4e9aaa5f0b64067c0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390730677767878798, guid: 9dfc7fa33187ebe4e9aaa5f0b64067c0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390730677767878798, guid: 9dfc7fa33187ebe4e9aaa5f0b64067c0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390730677767878798, guid: 9dfc7fa33187ebe4e9aaa5f0b64067c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390730677767878798, guid: 9dfc7fa33187ebe4e9aaa5f0b64067c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390730677767878798, guid: 9dfc7fa33187ebe4e9aaa5f0b64067c0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244284322341755349, guid: 9dfc7fa33187ebe4e9aaa5f0b64067c0, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9dfc7fa33187ebe4e9aaa5f0b64067c0, type: 3}
 --- !u!1 &589800945
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,13 +387,19 @@ MonoBehaviour:
   dialogue:
     name:
     - Teacher
-    - Player
+    - Student
     - Teacher
-    sentence:
-    - Well done on clicking the button! Now press Enter to continue the dialogue.
-    - Oh wow that was easy, how do I leave this?
-    - Since we're on the last dialogue, just press Enter again and the dialogue will
-      vanish.
+    sentences:
+    - Well done! I've learnt how to interact with a button. Please press Enter to
+      continue.
+    - Wowzers! So pressing Enter advances the dialogue. But how tdo I get out of
+      it?
+    - Simple. You just press Enter again on the last part of the dialogue, like this
+      line here.
+    audioClips:
+    - {fileID: 8300000, guid: 719624ba2fc11df4cae82c8ad3da4d39, type: 3}
+    - {fileID: 8300000, guid: 1310939545e203c4e8a24c3bc04d284d, type: 3}
+    - {fileID: 8300000, guid: 035ac528e2b21c44d9f99b5e504c5d1f, type: 3}
 --- !u!114 &652398176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1109,3 +1172,4 @@ SceneRoots:
   - {fileID: 1158130238}
   - {fileID: 987142708}
   - {fileID: 1374532287}
+  - {fileID: 190606680}
