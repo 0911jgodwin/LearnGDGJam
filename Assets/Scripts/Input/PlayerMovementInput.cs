@@ -10,6 +10,7 @@ namespace Learn.PlayerController
         public Vector2 MovementInput { get; private set; }
         public bool JumpPressed { get; private set; }
         public bool JumpHeld { get; private set; }
+        public bool DashPressed { get; private set; }
 
         private void OnEnable()
         {
@@ -29,6 +30,7 @@ namespace Learn.PlayerController
         private void LateUpdate()
         {
             JumpPressed = false;
+            DashPressed = false;
         }
 
         public void OnMovement(InputAction.CallbackContext context)
@@ -46,6 +48,13 @@ namespace Learn.PlayerController
             else if (context.canceled) {
                 JumpHeld = false;
             }
+        }
+
+        public void OnDash(InputAction.CallbackContext context)
+        {
+            if (!context.performed)
+                return;
+            DashPressed = true;
         }
     }
 }

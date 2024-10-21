@@ -557,7 +557,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: a96f03ff0cc846843829b04e39a24296, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -651,18 +651,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488c70b3750abd34d9abf75feb0b9795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpForce: 8
-  slideSpeed: 3
+  speed: 7
+  jumpForce: 12
+  slideSpeed: 1
+  dashSpeed: 20
   acceleration: 5
-  FancyMovement: 1
-  BasicJumping: 1
-  FancyJumping: 1
-  WallJumping: 1
-  WallSliding: 1
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 2
+  FancyMovementEnabled: 1
+  BasicJumpingEnabled: 1
+  FancyJumpingEnabled: 1
+  WallJumpingEnabled: 1
+  WallSlidingEnabled: 1
+  DashingEnabled: 1
+  fallMultiplier: 3
+  lowJumpMultiplier: 8
   canMove: 1
+  isDashing: 0
 --- !u!114 &1381457857
 MonoBehaviour:
   m_ObjectHideFlags: 0
