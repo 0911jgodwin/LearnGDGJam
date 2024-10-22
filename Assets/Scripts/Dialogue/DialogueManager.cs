@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UI;
 using System.ComponentModel.Design.Serialization;
+using DG.Tweening;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Dialogue Started");
         musicVolume = AudioManager.i.musicSource.volume * 10;
         AudioManager.i.MusicVolume(musicVolume / 5);
-        DialogueBox.SetActive(true);
+        StartCoroutine(EnterBox());
 
         sentences.Clear();
 
@@ -110,9 +111,23 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        DialogueBox.SetActive(false);
+        StartCoroutine(ExitBox());
         Debug.Log("End of Conversation");
         AudioManager.i.MusicVolume(musicVolume);
         return;
+    }
+    IEnumerator EnterBox()
+    {
+        Sequence s = DOTween.Sequence();
+        s.Append(DialogueBox.transform.DOScale(new Vector3(1f, 1f, 0f), 1f));
+        s.Join(DialogueBox.transform.DOMoveY(100f, 1f));
+        yield return s.WaitForCompletion();
+    }
+    IEnumerator ExitBox()
+    {
+        Sequence s = DOTween.Sequence();
+        s.Append(DialogueBox.transform.DOScale(new Vector3(0f, 0f, 0f), 1f));
+        s.Join(DialogueBox.transform.DOMoveY(-100f, 1f));
+        yield return s.WaitForCompletion();
     }
 }
