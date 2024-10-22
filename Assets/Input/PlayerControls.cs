@@ -55,6 +55,15 @@ namespace Learn.PlayerController
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""60683cc6-c712-4981-96eb-f30390d6fcf5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -211,6 +220,217 @@ namespace Learn.PlayerController
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9c5a4a38-41d4-47b3-bd6a-67454e19e0b5"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59e12e8b-8df3-4d69-9ee4-ac51d336bdd3"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""MenuMap"",
+            ""id"": ""1680c763-c499-48aa-8c5a-463b95f53353"",
+            ""actions"": [
+                {
+                    ""name"": ""Select"",
+                    ""type"": ""Button"",
+                    ""id"": ""6ea4ba97-58d6-41b9-805c-84c789820543"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Navigate"",
+                    ""type"": ""Value"",
+                    ""id"": ""422e2a55-d708-45f9-9982-c1f7d2265144"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Return"",
+                    ""type"": ""Button"",
+                    ""id"": ""4da1516e-44b4-4959-806c-25b995258d31"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""91993467-62c8-4be5-9a3b-77a1ec904f2f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""58b40b61-e0ce-41b8-ad40-9304d5bcb284"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""515ce082-6d87-49f1-839d-1f78618dff3b"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""29e0df7f-625a-408d-a3c6-67633ebe0cd2"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""79c3df4c-2a05-4722-b8d3-3d896c12aaba"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ec5ef4d5-b1a4-4ce3-8a11-52c131489428"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""016c1fdf-0c0d-40ac-b306-f817ca8fd680"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left Stick"",
+                    ""id"": ""3c1d59cb-cdec-4ede-88fc-572c544a78c3"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""ec6f4601-0a6a-4a9e-8713-d7ba0731ea4f"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""f0a479ed-f00d-4bc9-9229-c692e7ed9bd0"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ad5c86a4-1680-4080-9bc1-01f73d4fe28a"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""89b600ce-2d9d-431e-a7df-53244ca4b2b8"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2771c273-c157-4f6f-910e-a65088943e7c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Return"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d1af4019-da59-4367-86bb-ece677250b61"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Return"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -222,11 +442,18 @@ namespace Learn.PlayerController
             m_PlayerMovementMap_Movement = m_PlayerMovementMap.FindAction("Movement", throwIfNotFound: true);
             m_PlayerMovementMap_Jump = m_PlayerMovementMap.FindAction("Jump", throwIfNotFound: true);
             m_PlayerMovementMap_Dash = m_PlayerMovementMap.FindAction("Dash", throwIfNotFound: true);
+            m_PlayerMovementMap_Menu = m_PlayerMovementMap.FindAction("Menu", throwIfNotFound: true);
+            // MenuMap
+            m_MenuMap = asset.FindActionMap("MenuMap", throwIfNotFound: true);
+            m_MenuMap_Select = m_MenuMap.FindAction("Select", throwIfNotFound: true);
+            m_MenuMap_Navigate = m_MenuMap.FindAction("Navigate", throwIfNotFound: true);
+            m_MenuMap_Return = m_MenuMap.FindAction("Return", throwIfNotFound: true);
         }
 
         ~@PlayerControls()
         {
             UnityEngine.Debug.Assert(!m_PlayerMovementMap.enabled, "This will cause a leak and performance issues, PlayerControls.PlayerMovementMap.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_MenuMap.enabled, "This will cause a leak and performance issues, PlayerControls.MenuMap.Disable() has not been called.");
         }
 
         public void Dispose()
@@ -291,6 +518,7 @@ namespace Learn.PlayerController
         private readonly InputAction m_PlayerMovementMap_Movement;
         private readonly InputAction m_PlayerMovementMap_Jump;
         private readonly InputAction m_PlayerMovementMap_Dash;
+        private readonly InputAction m_PlayerMovementMap_Menu;
         public struct PlayerMovementMapActions
         {
             private @PlayerControls m_Wrapper;
@@ -298,6 +526,7 @@ namespace Learn.PlayerController
             public InputAction @Movement => m_Wrapper.m_PlayerMovementMap_Movement;
             public InputAction @Jump => m_Wrapper.m_PlayerMovementMap_Jump;
             public InputAction @Dash => m_Wrapper.m_PlayerMovementMap_Dash;
+            public InputAction @Menu => m_Wrapper.m_PlayerMovementMap_Menu;
             public InputActionMap Get() { return m_Wrapper.m_PlayerMovementMap; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -316,6 +545,9 @@ namespace Learn.PlayerController
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
             }
 
             private void UnregisterCallbacks(IPlayerMovementMapActions instance)
@@ -329,6 +561,9 @@ namespace Learn.PlayerController
                 @Dash.started -= instance.OnDash;
                 @Dash.performed -= instance.OnDash;
                 @Dash.canceled -= instance.OnDash;
+                @Menu.started -= instance.OnMenu;
+                @Menu.performed -= instance.OnMenu;
+                @Menu.canceled -= instance.OnMenu;
             }
 
             public void RemoveCallbacks(IPlayerMovementMapActions instance)
@@ -346,11 +581,80 @@ namespace Learn.PlayerController
             }
         }
         public PlayerMovementMapActions @PlayerMovementMap => new PlayerMovementMapActions(this);
+
+        // MenuMap
+        private readonly InputActionMap m_MenuMap;
+        private List<IMenuMapActions> m_MenuMapActionsCallbackInterfaces = new List<IMenuMapActions>();
+        private readonly InputAction m_MenuMap_Select;
+        private readonly InputAction m_MenuMap_Navigate;
+        private readonly InputAction m_MenuMap_Return;
+        public struct MenuMapActions
+        {
+            private @PlayerControls m_Wrapper;
+            public MenuMapActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Select => m_Wrapper.m_MenuMap_Select;
+            public InputAction @Navigate => m_Wrapper.m_MenuMap_Navigate;
+            public InputAction @Return => m_Wrapper.m_MenuMap_Return;
+            public InputActionMap Get() { return m_Wrapper.m_MenuMap; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(MenuMapActions set) { return set.Get(); }
+            public void AddCallbacks(IMenuMapActions instance)
+            {
+                if (instance == null || m_Wrapper.m_MenuMapActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_MenuMapActionsCallbackInterfaces.Add(instance);
+                @Select.started += instance.OnSelect;
+                @Select.performed += instance.OnSelect;
+                @Select.canceled += instance.OnSelect;
+                @Navigate.started += instance.OnNavigate;
+                @Navigate.performed += instance.OnNavigate;
+                @Navigate.canceled += instance.OnNavigate;
+                @Return.started += instance.OnReturn;
+                @Return.performed += instance.OnReturn;
+                @Return.canceled += instance.OnReturn;
+            }
+
+            private void UnregisterCallbacks(IMenuMapActions instance)
+            {
+                @Select.started -= instance.OnSelect;
+                @Select.performed -= instance.OnSelect;
+                @Select.canceled -= instance.OnSelect;
+                @Navigate.started -= instance.OnNavigate;
+                @Navigate.performed -= instance.OnNavigate;
+                @Navigate.canceled -= instance.OnNavigate;
+                @Return.started -= instance.OnReturn;
+                @Return.performed -= instance.OnReturn;
+                @Return.canceled -= instance.OnReturn;
+            }
+
+            public void RemoveCallbacks(IMenuMapActions instance)
+            {
+                if (m_Wrapper.m_MenuMapActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            public void SetCallbacks(IMenuMapActions instance)
+            {
+                foreach (var item in m_Wrapper.m_MenuMapActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_MenuMapActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        public MenuMapActions @MenuMap => new MenuMapActions(this);
         public interface IPlayerMovementMapActions
         {
             void OnMovement(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
             void OnDash(InputAction.CallbackContext context);
+            void OnMenu(InputAction.CallbackContext context);
+        }
+        public interface IMenuMapActions
+        {
+            void OnSelect(InputAction.CallbackContext context);
+            void OnNavigate(InputAction.CallbackContext context);
+            void OnReturn(InputAction.CallbackContext context);
         }
     }
 }
