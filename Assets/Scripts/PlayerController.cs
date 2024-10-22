@@ -9,6 +9,7 @@ namespace Learn.PlayerController
         private PlayerMovementInput _playerMovementInput;
         private Rigidbody2D _rb;
         private PlayerCollision _playerCollision;
+        private PlayerAnimation _playerAnimation;
 
         [Header("Player Stats")]
         public float speed = 10f;
@@ -40,14 +41,17 @@ namespace Learn.PlayerController
             _playerMovementInput = GetComponent<PlayerMovementInput>();
             _rb = GetComponent<Rigidbody2D>();
             _playerCollision = GetComponent<PlayerCollision>();
+            _playerAnimation = GetComponent<PlayerAnimation>();
         }
 
         // Update is called once per frame
         void Update()
         {
+            _playerAnimation.SetMovementValues(_playerMovementInput.MovementInput, _rb.linearVelocityY);
 
             if (_playerMovementInput.JumpPressed)
             {
+                _playerAnimation.SetTrigger("jump");
                 if (_playerCollision.onGround && BasicJumpingEnabled)
                     Jump(Vector2.up);
                 else if (_playerCollision.onWall && WallJumpingEnabled)
@@ -56,6 +60,7 @@ namespace Learn.PlayerController
 
             if (_playerMovementInput.DashPressed && !hasDashed)
             {
+                _playerAnimation.SetTrigger("dash");
                 if (_playerMovementInput.MovementInput != Vector2.zero && DashingEnabled)
                     StartCoroutine(DashLockout(_playerMovementInput.MovementInput));
             }
