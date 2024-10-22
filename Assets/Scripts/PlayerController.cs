@@ -60,7 +60,7 @@ namespace Learn.PlayerController
                     StartCoroutine(DashLockout(_playerMovementInput.MovementInput));
             }
 
-            if (_playerCollision.onGround)
+            if (_playerCollision.onGround && !isDashing)
             {
                 hasDashed = false;
             }
@@ -128,6 +128,7 @@ namespace Learn.PlayerController
 
         IEnumerator DashLockout(Vector2 direction)
         {
+            isDashing = true;
             hasDashed = true;
             bool isFancyJumping = FancyJumpingEnabled;
             if (isFancyJumping)
@@ -152,6 +153,7 @@ namespace Learn.PlayerController
                 yield return null;
 
             FancyJumpingEnabled = isFancyJumping;
+            isDashing = false;
         }
 
         IEnumerator DisableMovement(float time)
