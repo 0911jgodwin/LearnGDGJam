@@ -33,8 +33,11 @@ namespace Learn.PlayerController
         [Header("Booleans")]
         public bool canMove = true;
         public bool isDashing;
+        public bool wallSliding;
 
         private bool hasDashed;
+
+        public int side = 1;
 
         void Awake()
         {
@@ -79,16 +82,39 @@ namespace Learn.PlayerController
                     _rb.linearVelocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
             }
             #endregion
+            #region FlipSprite
+            if (wallSliding || !canMove)
+                return;
+
+            if (_playerMovementInput.MovementInput.x > 0)
+            {
+                side = 1;
+                _playerAnimation.Flip(side);
+            }  
+            else if (_playerMovementInput.MovementInput.x < 0)
+            {
+                side = -1;
+                _playerAnimation.Flip(side);
+            }
+            #endregion
         }
 
         private void FixedUpdate()
         {
             Run(_playerMovementInput.MovementInput);
 
+            if (!_playerCollision.onWall || _playerCollision.onGround || !canMove)
+            {
+                wallSliding = false;
+            }
+
             if (_playerCollision.onWall && !_playerCollision.onGround)
             {
                 if (_playerMovementInput.MovementInput.x != 0)
+                {
+                    wallSliding = true;
                     WallSlide();
+                }            
             }
         }
 
@@ -125,6 +151,12 @@ namespace Learn.PlayerController
 
         private void WallJump()
         {
+            if ((side == 1 && _playerCollision.onRightWall) || side == -1 && !_playerCollision.onRightWall)
+            {
+                side *= -1;
+                _playerAnimation.Flip(side);
+            }
+
             Vector2 wallDirection = _playerCollision.onRightWall ? Vector2.left : Vector2.right;
             StartCoroutine(DisableMovement(0.15f));
             //Trying to get a nice upward arc
