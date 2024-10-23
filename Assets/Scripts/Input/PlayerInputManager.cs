@@ -11,7 +11,6 @@ namespace Learn.PlayerController
         public PlayerControls PlayerControls {  get; private set; }
 
         public InputActionMap CurrentActionMap { get; private set; }
-        public static event Action<InputActionMap> _actionMapChange;
 
 
         private void Awake()
