@@ -7,10 +7,6 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync("PauseMenu");
     }
-    public void Options()
-    {
-        SceneManager.LoadSceneAsync("OptionsMenu", LoadSceneMode.Additive);
-    }
     public void QuitLevel()
     {
         SceneManager.LoadSceneAsync("MainMenu");
