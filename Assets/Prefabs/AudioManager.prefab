@@ -268,6 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1390730677767878798}
   - component: {fileID: 5122718724277073551}
+  - component: {fileID: 2678306626457913446}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -322,6 +323,14 @@ MonoBehaviour:
   sfxSource: {fileID: 9141539033652916807}
   voiceSource: {fileID: 7442334297582187}
   typingSound: {fileID: 8300000, guid: 31ba489423d6cba46bf530ff1db1e6c7, type: 3}
+--- !u!81 &2678306626457913446
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3244284322341755349}
+  m_Enabled: 1
 --- !u!1 &8522300921399985480
 GameObject:
   m_ObjectHideFlags: 0
