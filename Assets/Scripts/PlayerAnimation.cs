@@ -8,6 +8,8 @@ namespace Learn.PlayerController
         [SerializeField] PlayerCollision _playerCollision;
         [SerializeField] PlayerController _playerController;
         [SerializeField] SpriteRenderer _spriteRenderer;
+        [SerializeField] PlayerMovementInput _playerMovementInput;
+
 
         private static int inputXHash = Animator.StringToHash("inputX");
         private static int inputYHash = Animator.StringToHash("inputY");
@@ -24,6 +26,7 @@ namespace Learn.PlayerController
             _playerCollision = GetComponent<PlayerCollision>();
             _playerController = GetComponent<PlayerController>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _playerMovementInput = GetComponent<PlayerMovementInput>();
         }
 
         void Update()

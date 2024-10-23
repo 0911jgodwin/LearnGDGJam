@@ -151,6 +151,12 @@ namespace Learn.PlayerController
 
         private void WallJump()
         {
+            if ((side == 1 && _playerCollision.onRightWall) || side == -1 && !_playerCollision.onRightWall)
+            {
+                side *= -1;
+                _playerAnimation.Flip(side);
+            }
+
             Vector2 wallDirection = _playerCollision.onRightWall ? Vector2.left : Vector2.right;
             StartCoroutine(DisableMovement(0.15f));
             //Trying to get a nice upward arc

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 327228235005808490}
   - component: {fileID: 7660242244451355814}
   - component: {fileID: 94120997479217488}
+  - component: {fileID: 3605718161949085511}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -206,6 +207,7 @@ MonoBehaviour:
   lowJumpMultiplier: 8
   canMove: 1
   isDashing: 0
+  wallSliding: 0
   side: 1
 --- !u!114 &327228235005808490
 MonoBehaviour:
@@ -268,3 +270,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3605718161949085511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815079529045307468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541495da94ad5874bbf6e490658a3c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
