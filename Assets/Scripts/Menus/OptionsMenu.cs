@@ -1,8 +1,11 @@
+using System.Collections;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PauseMenuController : MonoBehaviour
+public class OptionsMenu : MonoBehaviour
 {
     public Slider _musicSlider, _sfxSlider, _voiceSlider;
 
@@ -67,4 +70,10 @@ public class PauseMenuController : MonoBehaviour
 
         voiceVolume.text = _musicSlider.value.ToString();
     }
+
+    public void Return()
+    {
+        SceneManager.UnloadSceneAsync("OptionsMenu");
+    }
+
 }

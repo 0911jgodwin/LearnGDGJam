@@ -1,23 +1,20 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Fader : MonoBehaviour
 {
-    [SerializeField] private CanvasGroup panel;
-    public static Fader i { get; private set; }
+    public Image black;
+    public Animator anim;
 
-    private void Awake()
+    public IEnumerator Fading(string scene)
     {
-        i = this;
-    }
-    public IEnumerator FadeIn(float time)
-    {
-        yield return panel.DOFade(1f, time).WaitForCompletion();
-    }
-
-    public IEnumerator FadeOut(float time)
-    {
-        yield return panel.DOFade(0f, time).WaitForCompletion();
+        Debug.Log("Fader Start");
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
+        SceneManager.LoadSceneAsync(scene);
+        Debug.Log("Fader End");
     }
 }

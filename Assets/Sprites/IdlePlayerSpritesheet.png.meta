@@ -64,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 24
@@ -156,10 +156,10 @@ TextureImporter:
       name: IdlePlayerSpritesheet_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 7
-        width: 20
-        height: 40
+        x: 14
+        y: 8
+        width: 18
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: IdlePlayerSpritesheet_1
       rect:
         serializedVersion: 2
-        x: 61
-        y: 7
-        width: 21
-        height: 39
+        x: 62
+        y: 8
+        width: 19
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,10 +200,10 @@ TextureImporter:
       name: IdlePlayerSpritesheet_2
       rect:
         serializedVersion: 2
-        x: 109
-        y: 7
-        width: 21
-        height: 37
+        x: 110
+        y: 8
+        width: 19
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,10 +222,10 @@ TextureImporter:
       name: IdlePlayerSpritesheet_3
       rect:
         serializedVersion: 2
-        x: 157
-        y: 7
-        width: 21
-        height: 37
+        x: 158
+        y: 8
+        width: 19
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +244,10 @@ TextureImporter:
       name: IdlePlayerSpritesheet_4
       rect:
         serializedVersion: 2
-        x: 205
-        y: 7
-        width: 21
-        height: 37
+        x: 206
+        y: 8
+        width: 19
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,10 +266,10 @@ TextureImporter:
       name: IdlePlayerSpritesheet_5
       rect:
         serializedVersion: 2
-        x: 253
-        y: 7
-        width: 21
-        height: 37
+        x: 254
+        y: 8
+        width: 19
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,10 +288,10 @@ TextureImporter:
       name: IdlePlayerSpritesheet_6
       rect:
         serializedVersion: 2
-        x: 301
-        y: 7
-        width: 21
-        height: 37
+        x: 302
+        y: 8
+        width: 19
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,10 +310,10 @@ TextureImporter:
       name: IdlePlayerSpritesheet_7
       rect:
         serializedVersion: 2
-        x: 349
-        y: 7
-        width: 21
-        height: 37
+        x: 350
+        y: 8
+        width: 19
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,10 +332,10 @@ TextureImporter:
       name: IdlePlayerSpritesheet_8
       rect:
         serializedVersion: 2
-        x: 397
-        y: 7
-        width: 21
-        height: 37
+        x: 398
+        y: 8
+        width: 19
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,10 +354,10 @@ TextureImporter:
       name: IdlePlayerSpritesheet_9
       rect:
         serializedVersion: 2
-        x: 445
-        y: 7
-        width: 21
-        height: 38
+        x: 446
+        y: 8
+        width: 19
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,7 +376,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: aba7994e15cf55c4cbdc0c1b3385ea1d
     internalID: 0
     vertices: []
     indices: 
