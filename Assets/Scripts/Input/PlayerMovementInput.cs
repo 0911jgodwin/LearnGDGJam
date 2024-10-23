@@ -14,17 +14,26 @@ namespace Learn.PlayerController
 
         private void OnEnable()
         {
-            PlayerControls = new PlayerControls();
-            PlayerControls.Enable();
+            if (PlayerInputManager.Instance?.PlayerControls == null)
+            {
+                Debug.LogError("Player controls is not initialized - cannot enable");
+                return;
+            }
 
-            PlayerControls.PlayerMovementMap.Enable();
-            PlayerControls.PlayerMovementMap.SetCallbacks(this);
+            PlayerInputManager.Instance.PlayerControls.PlayerMovementMap.Enable();
+            PlayerInputManager.Instance.PlayerControls.PlayerMovementMap.SetCallbacks(this);
         }
 
         private void OnDisable()
         {
-            PlayerControls.PlayerMovementMap.Disable();
-            PlayerControls.PlayerMovementMap.RemoveCallbacks(this);
+            if (PlayerInputManager.Instance?.PlayerControls == null)
+            {
+                Debug.LogError("Player controls is not initialized - cannot disable");
+                return;
+            }
+
+            PlayerInputManager.Instance.PlayerControls.PlayerMovementMap.Disable();
+            PlayerInputManager.Instance.PlayerControls.PlayerMovementMap.RemoveCallbacks(this);
         }
 
         private void LateUpdate()
@@ -55,6 +64,14 @@ namespace Learn.PlayerController
             if (!context.performed)
                 return;
             DashPressed = true;
+        }
+
+        public void OnMenu(InputAction.CallbackContext context)
+        {
+            if (!context.performed)
+                return;
+            PlayerInputManager.Instance.PlayerControls.PlayerMovementMap.Disable();
+            PlayerInputManager.Instance.PlayerControls.MenuMap.Enable();
         }
     }
 }
