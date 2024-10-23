@@ -13,6 +13,10 @@ public class MainMenu : MonoBehaviour
     {
         fader = GetComponent<Fader>();
     }
+    void Update()
+    {
+        Debug.Log(Input.mousePosition.ToString());
+    }
     public void PlayGame()
     {
         StartCoroutine(fader.Fading("IntroScene"));
