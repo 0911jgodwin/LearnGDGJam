@@ -248,6 +248,7 @@ MonoBehaviour:
   _playerCollision: {fileID: 327228235005808490}
   _playerController: {fileID: 2201407657275705268}
   _spriteRenderer: {fileID: 0}
+  _playerMovementInput: {fileID: 0}
 --- !u!95 &94120997479217488
 Animator:
   serializedVersion: 7
