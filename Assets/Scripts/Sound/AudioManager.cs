@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     public Sound[] musicSounds, sfxSounds, voiceSounds;
     public AudioSource musicSource, sfxSource, voiceSource;
     [SerializeField] public AudioClip typingSound;
-
+    [SerializeField] public AudioClip EntryTrack;
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlayMusic("LevelMusic");
+        PlayMusic(EntryTrack.name);
     }
     public void PlayMusic(string name)
     {
