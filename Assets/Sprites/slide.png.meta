@@ -43,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,7 +54,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 24
@@ -135,12 +135,12 @@ TextureImporter:
       name: slide_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 9
-        width: 17
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 15
+        y: 10
+        width: 15
+        height: 30
+      alignment: 3
+      pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -157,12 +157,12 @@ TextureImporter:
       name: slide_1
       rect:
         serializedVersion: 2
-        x: 60
-        y: 2
-        width: 19
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 61
+        y: 3
+        width: 17
+        height: 35
+      alignment: 3
+      pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -179,12 +179,12 @@ TextureImporter:
       name: slide_2
       rect:
         serializedVersion: 2
-        x: 107
-        y: 2
-        width: 20
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 108
+        y: 3
+        width: 18
+        height: 35
+      alignment: 3
+      pivot: {x: 1, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -201,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 9d58936c349cc2c428de42e0a1fa8193
     internalID: 0
     vertices: []
     indices: 
