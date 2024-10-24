@@ -24,15 +24,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Dash",
-                    "type": "Button",
-                    "id": "fde86659-074a-4a78-9842-69c2d34d9019",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Menu",
                     "type": "Button",
                     "id": "60683cc6-c712-4981-96eb-f30390d6fcf5",
@@ -63,6 +54,15 @@
                     "name": "Shoot",
                     "type": "Button",
                     "id": "b5d1f318-f2a8-4e7e-8bc7-c135caccb0ca",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Submit",
+                    "type": "Button",
+                    "id": "aba670f0-c510-4c38-b0d0-b8510302a45c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -204,28 +204,6 @@
                 },
                 {
                     "name": "",
-                    "id": "51ee48b6-1a1d-4262-b10d-68bc1a7795d0",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c9ce6342-d220-4625-a49b-a8fbcea6e7c1",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "9c5a4a38-41d4-47b3-bd6a-67454e19e0b5",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
@@ -287,6 +265,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3676a5a9-8105-4a95-8cdd-013c7c53bbab",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1434aaf3-7ba5-4e2b-bbe0-70fd6042b313",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
