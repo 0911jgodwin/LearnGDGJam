@@ -893,6 +893,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Projectile
       objectReference: {fileID: 0}
+    - target: {fileID: 7614981811558430944, guid: 02a071d4ffdef924d973af931735a321, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4250240542740113009, guid: 77653be720db67349aabc2a477c48030, type: 3}
+    - target: {fileID: 7614981811558430944, guid: 02a071d4ffdef924d973af931735a321, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614981811558430944, guid: 02a071d4ffdef924d973af931735a321, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1114,7 +1126,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1971283013, guid: 69b77d45313e3204fa0e0eb824198e6c, type: 3}
+  m_Sprite: {fileID: 270547814, guid: 28f0f7562532eb546a3281c4db400da6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
