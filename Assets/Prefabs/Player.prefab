@@ -160,7 +160,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8333333, y: 1.6666666}
+    oldSize: {x: 0.75, y: 1.5833334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3419b0417aa75fa4a95ee9b6f68e9689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerCamera: {fileID: 0}
 --- !u!114 &2201407657275705268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 488c70b3750abd34d9abf75feb0b9795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _projectilePrefab: {fileID: 0}
   speed: 7
   jumpForce: 12
   slideSpeed: 1

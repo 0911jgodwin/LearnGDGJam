@@ -10,6 +10,8 @@ namespace Learn.PlayerController
         private Rigidbody2D _rb;
         private PlayerCollision _playerCollision;
         private PlayerAnimation _playerAnimation;
+        private GameObject _targetingReticule;
+        public Projectile _projectilePrefab;
 
         [Header("Player Stats")]
         public float speed = 10f;
@@ -39,31 +41,47 @@ namespace Learn.PlayerController
 
         public int side = 1;
 
+        private float lastShotFiredTime;
+        private float reloadSpeed = 0.5f;
+
         void Awake()
         {
             _playerMovementInput = GetComponent<PlayerMovementInput>();
             _rb = GetComponent<Rigidbody2D>();
             _playerCollision = GetComponent<PlayerCollision>();
             _playerAnimation = GetComponent<PlayerAnimation>();
+            _targetingReticule = gameObject.transform.GetChild(0).gameObject;
         }
 
         // Update is called once per frame
         void Update()
         {
             _playerAnimation.SetMovementValues(_playerMovementInput.MovementInput, _rb.linearVelocityY);
+            UpdateAim();
+
+            if (lastShotFiredTime > 0)
+            {
+                lastShotFiredTime -= Time.deltaTime;
+            }
+
+            if ((_playerMovementInput.ShootPressed || _playerMovementInput.ShootHeld) && lastShotFiredTime <= 0)
+            {
+                FireSpell();
+            }
 
             if (_playerMovementInput.JumpPressed)
             {
-                _playerAnimation.SetTrigger("jump");
                 if (_playerCollision.onGround && BasicJumpingEnabled)
                     Jump(Vector2.up);
                 else if (_playerCollision.onWall && WallJumpingEnabled)
                     WallJump();
+                else if (!_playerCollision.onGround && !hasDashed && _playerMovementInput.MovementInput != Vector2.zero && DashingEnabled)
+                    StartCoroutine(DashLockout(_playerMovementInput.MovementInput));
             }
 
             if (_playerMovementInput.DashPressed && !hasDashed)
             {
-                _playerAnimation.SetTrigger("dash");
+                
                 if (_playerMovementInput.MovementInput != Vector2.zero && DashingEnabled)
                     StartCoroutine(DashLockout(_playerMovementInput.MovementInput));
             }
@@ -131,6 +149,7 @@ namespace Learn.PlayerController
 
         private void Jump(Vector2 direction)
         {
+            _playerAnimation.SetTrigger("jump");
             float force = jumpForce;
             //counteracting falling speed to help ensure our jump works as expected
             if (_rb.linearVelocityY < 0)
@@ -163,8 +182,25 @@ namespace Learn.PlayerController
             Jump(new Vector2(wallDirection.x*3, 5).normalized);
         }
 
+        private void UpdateAim()
+        {
+            if (_playerMovementInput.AimInput == Vector2.zero)
+                return;
+
+            float radValue = Mathf.Atan2(_playerMovementInput.AimInput.y, _playerMovementInput.AimInput.x);
+            _targetingReticule.transform.eulerAngles = new Vector3(0,0,(radValue * (180/Mathf.PI))-90);
+        }
+
+        private void FireSpell()
+        {
+            lastShotFiredTime = reloadSpeed;
+            Projectile shot = Instantiate(_projectilePrefab, _targetingReticule.transform.GetChild(0).transform.position, _targetingReticule.transform.rotation);
+            shot.SetDirection(_targetingReticule.transform.GetChild(0).transform.position-transform.position);
+        }
+
         IEnumerator DashLockout(Vector2 direction)
         {
+            _playerAnimation.SetTrigger("dash");
             isDashing = true;
             hasDashed = true;
             bool isFancyJumping = FancyJumpingEnabled;

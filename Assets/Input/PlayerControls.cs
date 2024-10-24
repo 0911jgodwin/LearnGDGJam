@@ -64,6 +64,33 @@ namespace Learn.PlayerController
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Value"",
+                    ""id"": ""66bc413f-1128-4c9a-9547-daf1334400e5"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MouseAim"",
+                    ""type"": ""Value"",
+                    ""id"": ""60e7d936-6e98-42f2-a9a4-82e03df0f78e"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""b5d1f318-f2a8-4e7e-8bc7-c135caccb0ca"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -191,7 +218,7 @@ namespace Learn.PlayerController
                 {
                     ""name"": """",
                     ""id"": ""c805caed-db52-479f-9f7b-5db5162c2d09"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -240,6 +267,50 @@ namespace Learn.PlayerController
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05893380-6364-4f6e-9aef-7b84b19f078b"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2d349477-83fc-4fbe-a0ed-dcb8d3b9fd50"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0a0c6de0-ef8b-4388-92a2-473775f29900"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""35ede1cd-8b6f-4922-8914-0b407f971324"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -443,6 +514,9 @@ namespace Learn.PlayerController
             m_PlayerMovementMap_Jump = m_PlayerMovementMap.FindAction("Jump", throwIfNotFound: true);
             m_PlayerMovementMap_Dash = m_PlayerMovementMap.FindAction("Dash", throwIfNotFound: true);
             m_PlayerMovementMap_Menu = m_PlayerMovementMap.FindAction("Menu", throwIfNotFound: true);
+            m_PlayerMovementMap_Aim = m_PlayerMovementMap.FindAction("Aim", throwIfNotFound: true);
+            m_PlayerMovementMap_MouseAim = m_PlayerMovementMap.FindAction("MouseAim", throwIfNotFound: true);
+            m_PlayerMovementMap_Shoot = m_PlayerMovementMap.FindAction("Shoot", throwIfNotFound: true);
             // MenuMap
             m_MenuMap = asset.FindActionMap("MenuMap", throwIfNotFound: true);
             m_MenuMap_Select = m_MenuMap.FindAction("Select", throwIfNotFound: true);
@@ -519,6 +593,9 @@ namespace Learn.PlayerController
         private readonly InputAction m_PlayerMovementMap_Jump;
         private readonly InputAction m_PlayerMovementMap_Dash;
         private readonly InputAction m_PlayerMovementMap_Menu;
+        private readonly InputAction m_PlayerMovementMap_Aim;
+        private readonly InputAction m_PlayerMovementMap_MouseAim;
+        private readonly InputAction m_PlayerMovementMap_Shoot;
         public struct PlayerMovementMapActions
         {
             private @PlayerControls m_Wrapper;
@@ -527,6 +604,9 @@ namespace Learn.PlayerController
             public InputAction @Jump => m_Wrapper.m_PlayerMovementMap_Jump;
             public InputAction @Dash => m_Wrapper.m_PlayerMovementMap_Dash;
             public InputAction @Menu => m_Wrapper.m_PlayerMovementMap_Menu;
+            public InputAction @Aim => m_Wrapper.m_PlayerMovementMap_Aim;
+            public InputAction @MouseAim => m_Wrapper.m_PlayerMovementMap_MouseAim;
+            public InputAction @Shoot => m_Wrapper.m_PlayerMovementMap_Shoot;
             public InputActionMap Get() { return m_Wrapper.m_PlayerMovementMap; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -548,6 +628,15 @@ namespace Learn.PlayerController
                 @Menu.started += instance.OnMenu;
                 @Menu.performed += instance.OnMenu;
                 @Menu.canceled += instance.OnMenu;
+                @Aim.started += instance.OnAim;
+                @Aim.performed += instance.OnAim;
+                @Aim.canceled += instance.OnAim;
+                @MouseAim.started += instance.OnMouseAim;
+                @MouseAim.performed += instance.OnMouseAim;
+                @MouseAim.canceled += instance.OnMouseAim;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
             }
 
             private void UnregisterCallbacks(IPlayerMovementMapActions instance)
@@ -564,6 +653,15 @@ namespace Learn.PlayerController
                 @Menu.started -= instance.OnMenu;
                 @Menu.performed -= instance.OnMenu;
                 @Menu.canceled -= instance.OnMenu;
+                @Aim.started -= instance.OnAim;
+                @Aim.performed -= instance.OnAim;
+                @Aim.canceled -= instance.OnAim;
+                @MouseAim.started -= instance.OnMouseAim;
+                @MouseAim.performed -= instance.OnMouseAim;
+                @MouseAim.canceled -= instance.OnMouseAim;
+                @Shoot.started -= instance.OnShoot;
+                @Shoot.performed -= instance.OnShoot;
+                @Shoot.canceled -= instance.OnShoot;
             }
 
             public void RemoveCallbacks(IPlayerMovementMapActions instance)
@@ -649,6 +747,9 @@ namespace Learn.PlayerController
             void OnJump(InputAction.CallbackContext context);
             void OnDash(InputAction.CallbackContext context);
             void OnMenu(InputAction.CallbackContext context);
+            void OnAim(InputAction.CallbackContext context);
+            void OnMouseAim(InputAction.CallbackContext context);
+            void OnShoot(InputAction.CallbackContext context);
         }
         public interface IMenuMapActions
         {
