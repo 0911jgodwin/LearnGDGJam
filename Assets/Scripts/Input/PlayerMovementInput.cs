@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Learn.PlayerController
 {
@@ -75,8 +76,7 @@ namespace Learn.PlayerController
         {
             if (!context.performed)
                 return;
-            PlayerInputManager.Instance.PlayerControls.PlayerMovementMap.Disable();
-            PlayerInputManager.Instance.PlayerControls.MenuMap.Enable();
+            SceneManager.LoadSceneAsync("OptionsMenu");
         }
 
         public void OnAim(InputAction.CallbackContext context)
