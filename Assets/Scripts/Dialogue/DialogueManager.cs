@@ -6,12 +6,14 @@ using UnityEngine.UI;
 using System.ComponentModel.Design.Serialization;
 using DG.Tweening;
 using System.Linq;
+using Learn.PlayerController;
 
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] public Text nameText;
     [SerializeField] public Text dialogueText;
     [SerializeField] int lettersPerSecond;
+    public PlayerMovementInput playerInput;
     float musicVolume;
     bool lastSentence = false;
 
@@ -23,7 +25,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Submit") && !lastSentence)
+        if (playerInput.SubmitPressed && !lastSentence)
         {
             AudioManager.i.StopVoice();
             DisplayNextSentence();

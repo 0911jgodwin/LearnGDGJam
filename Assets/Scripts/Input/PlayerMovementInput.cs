@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Learn.PlayerController
 {
@@ -15,6 +16,7 @@ namespace Learn.PlayerController
         public bool DashPressed { get; private set; }
         public bool ShootPressed { get; private set; }
         public bool ShootHeld { get; private set; }
+        public bool SubmitPressed { get; private set; }
 
         private void OnEnable()
         {
@@ -43,7 +45,7 @@ namespace Learn.PlayerController
         private void LateUpdate()
         {
             JumpPressed = false;
-            DashPressed = false;
+            SubmitPressed = false;
             ShootPressed = false;
         }
 
@@ -64,19 +66,11 @@ namespace Learn.PlayerController
             }
         }
 
-        public void OnDash(InputAction.CallbackContext context)
-        {
-            if (!context.performed)
-                return;
-            //DashPressed = true;
-        }
-
         public void OnMenu(InputAction.CallbackContext context)
         {
             if (!context.performed)
                 return;
-            PlayerInputManager.Instance.PlayerControls.PlayerMovementMap.Disable();
-            PlayerInputManager.Instance.PlayerControls.MenuMap.Enable();
+            SceneManager.LoadSceneAsync("OptionsMenu");
         }
 
         public void OnAim(InputAction.CallbackContext context)
@@ -105,6 +99,13 @@ namespace Learn.PlayerController
             {
                 ShootHeld = false;
             }
+        }
+
+        public void OnSubmit(InputAction.CallbackContext context)
+        {
+            if (!context.performed)
+                return;
+            SubmitPressed = true;
         }
     }
 }

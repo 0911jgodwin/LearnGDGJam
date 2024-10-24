@@ -9,8 +9,7 @@ namespace Learn.PlayerController
     {
         public static PlayerInputManager Instance;
         public PlayerControls PlayerControls {  get; private set; }
-
-        public InputActionMap CurrentActionMap { get; private set; }
+        public bool OptionsOpen = false;
 
 
         private void Awake()

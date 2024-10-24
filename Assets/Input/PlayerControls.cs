@@ -48,15 +48,6 @@ namespace Learn.PlayerController
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Dash"",
-                    ""type"": ""Button"",
-                    ""id"": ""fde86659-074a-4a78-9842-69c2d34d9019"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Menu"",
                     ""type"": ""Button"",
                     ""id"": ""60683cc6-c712-4981-96eb-f30390d6fcf5"",
@@ -87,6 +78,15 @@ namespace Learn.PlayerController
                     ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""b5d1f318-f2a8-4e7e-8bc7-c135caccb0ca"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Submit"",
+                    ""type"": ""Button"",
+                    ""id"": ""aba670f0-c510-4c38-b0d0-b8510302a45c"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -228,28 +228,6 @@ namespace Learn.PlayerController
                 },
                 {
                     ""name"": """",
-                    ""id"": ""51ee48b6-1a1d-4262-b10d-68bc1a7795d0"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c9ce6342-d220-4625-a49b-a8fbcea6e7c1"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""9c5a4a38-41d4-47b3-bd6a-67454e19e0b5"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
@@ -311,6 +289,28 @@ namespace Learn.PlayerController
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3676a5a9-8105-4a95-8cdd-013c7c53bbab"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1434aaf3-7ba5-4e2b-bbe0-70fd6042b313"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -512,11 +512,11 @@ namespace Learn.PlayerController
             m_PlayerMovementMap = asset.FindActionMap("PlayerMovementMap", throwIfNotFound: true);
             m_PlayerMovementMap_Movement = m_PlayerMovementMap.FindAction("Movement", throwIfNotFound: true);
             m_PlayerMovementMap_Jump = m_PlayerMovementMap.FindAction("Jump", throwIfNotFound: true);
-            m_PlayerMovementMap_Dash = m_PlayerMovementMap.FindAction("Dash", throwIfNotFound: true);
             m_PlayerMovementMap_Menu = m_PlayerMovementMap.FindAction("Menu", throwIfNotFound: true);
             m_PlayerMovementMap_Aim = m_PlayerMovementMap.FindAction("Aim", throwIfNotFound: true);
             m_PlayerMovementMap_MouseAim = m_PlayerMovementMap.FindAction("MouseAim", throwIfNotFound: true);
             m_PlayerMovementMap_Shoot = m_PlayerMovementMap.FindAction("Shoot", throwIfNotFound: true);
+            m_PlayerMovementMap_Submit = m_PlayerMovementMap.FindAction("Submit", throwIfNotFound: true);
             // MenuMap
             m_MenuMap = asset.FindActionMap("MenuMap", throwIfNotFound: true);
             m_MenuMap_Select = m_MenuMap.FindAction("Select", throwIfNotFound: true);
@@ -591,22 +591,22 @@ namespace Learn.PlayerController
         private List<IPlayerMovementMapActions> m_PlayerMovementMapActionsCallbackInterfaces = new List<IPlayerMovementMapActions>();
         private readonly InputAction m_PlayerMovementMap_Movement;
         private readonly InputAction m_PlayerMovementMap_Jump;
-        private readonly InputAction m_PlayerMovementMap_Dash;
         private readonly InputAction m_PlayerMovementMap_Menu;
         private readonly InputAction m_PlayerMovementMap_Aim;
         private readonly InputAction m_PlayerMovementMap_MouseAim;
         private readonly InputAction m_PlayerMovementMap_Shoot;
+        private readonly InputAction m_PlayerMovementMap_Submit;
         public struct PlayerMovementMapActions
         {
             private @PlayerControls m_Wrapper;
             public PlayerMovementMapActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
             public InputAction @Movement => m_Wrapper.m_PlayerMovementMap_Movement;
             public InputAction @Jump => m_Wrapper.m_PlayerMovementMap_Jump;
-            public InputAction @Dash => m_Wrapper.m_PlayerMovementMap_Dash;
             public InputAction @Menu => m_Wrapper.m_PlayerMovementMap_Menu;
             public InputAction @Aim => m_Wrapper.m_PlayerMovementMap_Aim;
             public InputAction @MouseAim => m_Wrapper.m_PlayerMovementMap_MouseAim;
             public InputAction @Shoot => m_Wrapper.m_PlayerMovementMap_Shoot;
+            public InputAction @Submit => m_Wrapper.m_PlayerMovementMap_Submit;
             public InputActionMap Get() { return m_Wrapper.m_PlayerMovementMap; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -622,9 +622,6 @@ namespace Learn.PlayerController
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @Dash.started += instance.OnDash;
-                @Dash.performed += instance.OnDash;
-                @Dash.canceled += instance.OnDash;
                 @Menu.started += instance.OnMenu;
                 @Menu.performed += instance.OnMenu;
                 @Menu.canceled += instance.OnMenu;
@@ -637,6 +634,9 @@ namespace Learn.PlayerController
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @Submit.started += instance.OnSubmit;
+                @Submit.performed += instance.OnSubmit;
+                @Submit.canceled += instance.OnSubmit;
             }
 
             private void UnregisterCallbacks(IPlayerMovementMapActions instance)
@@ -647,9 +647,6 @@ namespace Learn.PlayerController
                 @Jump.started -= instance.OnJump;
                 @Jump.performed -= instance.OnJump;
                 @Jump.canceled -= instance.OnJump;
-                @Dash.started -= instance.OnDash;
-                @Dash.performed -= instance.OnDash;
-                @Dash.canceled -= instance.OnDash;
                 @Menu.started -= instance.OnMenu;
                 @Menu.performed -= instance.OnMenu;
                 @Menu.canceled -= instance.OnMenu;
@@ -662,6 +659,9 @@ namespace Learn.PlayerController
                 @Shoot.started -= instance.OnShoot;
                 @Shoot.performed -= instance.OnShoot;
                 @Shoot.canceled -= instance.OnShoot;
+                @Submit.started -= instance.OnSubmit;
+                @Submit.performed -= instance.OnSubmit;
+                @Submit.canceled -= instance.OnSubmit;
             }
 
             public void RemoveCallbacks(IPlayerMovementMapActions instance)
@@ -745,11 +745,11 @@ namespace Learn.PlayerController
         {
             void OnMovement(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
-            void OnDash(InputAction.CallbackContext context);
             void OnMenu(InputAction.CallbackContext context);
             void OnAim(InputAction.CallbackContext context);
             void OnMouseAim(InputAction.CallbackContext context);
             void OnShoot(InputAction.CallbackContext context);
+            void OnSubmit(InputAction.CallbackContext context);
         }
         public interface IMenuMapActions
         {
