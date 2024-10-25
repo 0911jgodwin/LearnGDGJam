@@ -141,10 +141,10 @@ TextureImporter:
       name: Spell_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 17
+        x: 13
+        y: 18
         width: 22
-        height: 17
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,10 +163,10 @@ TextureImporter:
       name: Spell_1
       rect:
         serializedVersion: 2
-        x: 56
-        y: 17
-        width: 22
-        height: 17
+        x: 63
+        y: 18
+        width: 20
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,10 +185,10 @@ TextureImporter:
       name: Spell_2
       rect:
         serializedVersion: 2
-        x: 103
-        y: 17
-        width: 25
-        height: 16
+        x: 113
+        y: 18
+        width: 23
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,10 +207,10 @@ TextureImporter:
       name: Spell_3
       rect:
         serializedVersion: 2
-        x: 156
-        y: 17
-        width: 22
-        height: 16
+        x: 163
+        y: 18
+        width: 20
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,10 +229,10 @@ TextureImporter:
       name: Spell_4
       rect:
         serializedVersion: 2
-        x: 204
-        y: 17
-        width: 24
-        height: 16
+        x: 211
+        y: 18
+        width: 20
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,7 +251,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 839e0264c3c701a44b3cf120d4dd926a
     internalID: 0
     vertices: []
     indices: 
