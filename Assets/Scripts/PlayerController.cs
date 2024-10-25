@@ -144,7 +144,7 @@ namespace Learn.PlayerController
             if (!FancyMovementEnabled)
                 _rb.linearVelocity = new Vector2(direction.x * speed, _rb.linearVelocity.y);
             else
-                _rb.linearVelocity = Vector2.Lerp(_rb.linearVelocity, (new Vector2(direction.x * speed, _rb.linearVelocity.y)), acceleration * Time.deltaTime);
+                _rb.linearVelocity = Vector2.Lerp(_rb.linearVelocity, (new Vector2(Mathf.RoundToInt(direction.x) * speed, _rb.linearVelocity.y)), acceleration * Time.deltaTime);
         }
 
         private void Jump(Vector2 direction)
