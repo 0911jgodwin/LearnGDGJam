@@ -1,11 +1,15 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Learn.PlayerController;
 
 public class DialogueTrigger : MonoBehaviour
 {
     public bool isRepeat = false;
     public Dialogue dialogue;
+    public bool bestowsAbility = false;
+    public int abilityToBestow = 0;
+    private GameObject player;
 
     public GameObject obj;
 
@@ -15,7 +19,7 @@ public class DialogueTrigger : MonoBehaviour
     }
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<DialogueManager>().StartDialogueWithTrigger(dialogue, BasicTest(player));
     }
 
     public void TriggerDialogue(IEnumerator trigger)
@@ -23,11 +27,32 @@ public class DialogueTrigger : MonoBehaviour
         FindObjectOfType<DialogueManager>().StartDialogueWithTrigger(dialogue, trigger);
     }
 
+    IEnumerator SetAbilityActive(GameObject playerObject)
+    {
+        playerObject.GetComponent<PlayerController>().EnableBehaviour(abilityToBestow);
+        playerObject.GetComponent<PlayerController>().ChattingAway = false;
+        yield return player;
+    }
+
+    IEnumerator BasicTest(GameObject playerObject) 
+    {
+        playerObject.GetComponent<PlayerController>().ChattingAway = false;
+        yield return player;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !isRepeat)
         {
-            TriggerDialogue();
+            player = collision.gameObject;
+            player.GetComponent<PlayerController>().ChattingAway = true;
+            if (!bestowsAbility)
+            {
+                TriggerDialogue();
+            } else
+            {
+                TriggerDialogue(SetAbilityActive(player));
+            }
             obj.SetActive(false);
         }
     }
