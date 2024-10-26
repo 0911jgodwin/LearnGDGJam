@@ -16,6 +16,10 @@ public class OptionsMenu : MonoBehaviour
     public Text sfxVolume;
     public Text voiceVolume;
 
+    public Image muteVolume;
+    public Image muteSfx;
+    public Image muteVoice;
+
     private int _selectedIndex = 0;
     private float navigationSpeed = 0.3f;
     private float navigationLockout = 0f;
@@ -139,12 +143,13 @@ public class OptionsMenu : MonoBehaviour
         if (AudioManager.i.musicSource.mute)
         {
             musicVolume.text = "0";
+            muteVolume.enabled = true;
         }
         else
         {
             musicVolume.text = $"{volume}";
+            muteVolume.enabled = false;
         }
-
     }
     public void ToggleSfx()
     {
@@ -153,10 +158,12 @@ public class OptionsMenu : MonoBehaviour
         if (AudioManager.i.sfxSource.mute)
         {
             sfxVolume.text = "0";
+            muteSfx.enabled = true;
         }
         else
         {
             sfxVolume.text = $"{volume}";
+            muteSfx.enabled = false;
         }
     }
     public void ToggleVoice()
@@ -166,10 +173,12 @@ public class OptionsMenu : MonoBehaviour
         if (AudioManager.i.voiceSource.mute)
         {
             voiceVolume.text = "0";
+            muteVoice.enabled = true;
         }
         else
         {
             voiceVolume.text = $"{volume}";
+            muteVoice.enabled = false;
         }
     }
     public void MusicVolume()

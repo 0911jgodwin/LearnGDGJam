@@ -151,6 +151,7 @@ namespace Learn.PlayerController
 
         private void Jump(Vector2 direction)
         {
+            AudioManager.i.PlaySfx("Jump");
             _playerAnimation.SetTrigger("jump");
             float force = jumpForce;
             //counteracting falling speed to help ensure our jump works as expected
@@ -172,6 +173,7 @@ namespace Learn.PlayerController
 
         private void WallJump()
         {
+            AudioManager.i.PlaySfx("Surface");
             if ((side == 1 && _playerCollision.onRightWall) || side == -1 && !_playerCollision.onRightWall)
             {
                 side *= -1;
@@ -202,6 +204,7 @@ namespace Learn.PlayerController
 
         IEnumerator DashLockout(Vector2 direction)
         {
+            AudioManager.i.PlaySfx("Dash");
             _playerAnimation.SetTrigger("dash");
             isDashing = true;
             hasDashed = true;

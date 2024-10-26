@@ -77,6 +77,15 @@ namespace Learn.PlayerController
         {
             if (!context.performed)
                 return;
+            PlayerInputManager.Instance.PlayerControls.PlayerMovementMap.Disable();
+            PlayerInputManager.Instance.PlayerControls.MenuMap.Enable();
+            SceneManager.LoadSceneAsync("OptionsMenu", LoadSceneMode.Additive);
+        }
+
+        public void OnAim(InputAction.CallbackContext context)
+        {
+            if (!context.performed)
+                return;
             AimInput = context.ReadValue<Vector2>();
         }
 

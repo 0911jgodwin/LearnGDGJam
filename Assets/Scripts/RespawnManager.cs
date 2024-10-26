@@ -29,6 +29,7 @@ public class RespawnManager : MonoBehaviour
 
     private void Die()
     {
+        AudioManager.i.PlaySfx("Death");
         StartCoroutine(Respawn(0.5f));
     }
 
