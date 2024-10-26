@@ -41,6 +41,15 @@ public class Ghost : MonoBehaviour
         originalDrag = _rb.linearDamping;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            collision.GameObject().GetComponent<RespawnManager>().Damage(3f);
+            Destroy(gameObject);
+        }
+    }
+
     private void Update()
     {
         if (debugEnabled)
