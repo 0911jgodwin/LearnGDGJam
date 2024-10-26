@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("MainCamera"))
+        if (!collision.CompareTag("MainCamera") && !collision.CompareTag("Player"))
         {
             if (collision.CompareTag("Enemy"))
                 collision.gameObject.GetComponent<Health>().Damage(1f);
