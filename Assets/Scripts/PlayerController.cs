@@ -27,6 +27,7 @@ namespace Learn.PlayerController
         public bool WallJumpingEnabled = false;
         public bool WallSlidingEnabled = false;
         public bool DashingEnabled = false;
+        public bool ShootingEnabled = false;
 
         [Header("Fall Options")]
         public float fallMultiplier = 2.5f;
@@ -66,7 +67,8 @@ namespace Learn.PlayerController
 
             if ((_playerMovementInput.ShootPressed || _playerMovementInput.ShootHeld) && lastShotFiredTime <= 0)
             {
-                FireSpell();
+                if (ShootingEnabled)
+                    FireSpell();
             }
 
             if (_playerMovementInput.JumpPressed)
@@ -234,6 +236,36 @@ namespace Learn.PlayerController
             canMove = false;
             yield return new WaitForSeconds(time);
             canMove = true;
+        }
+
+        public void EnableBehaviour(int i)
+        {
+
+            switch (i)
+            {
+                case 0:
+                    FancyMovementEnabled = true;
+                    break;
+                case 1:
+                    BasicJumpingEnabled = true;
+                    break;
+                case 2:
+                    FancyJumpingEnabled = true;
+                    break;
+                case 3:
+                    WallJumpingEnabled = true;
+                    break;
+                case 4:
+                    WallSlidingEnabled = true;
+                    break;
+                case 5:
+                    DashingEnabled = true;
+                    break;
+                case 6:
+                    ShootingEnabled = true;
+                    _targetingReticule.SetActive(true);
+                    break;
+            }
         }
     }
 }
