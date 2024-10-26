@@ -1,9 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine.UI;
-using System.ComponentModel.Design.Serialization;
 using DG.Tweening;
 using System.Linq;
 using Learn.PlayerController;

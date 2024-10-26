@@ -13,7 +13,6 @@ public class Boss : MonoBehaviour
     private float currentFireLockout = 0f;
     public float patternLockout = 4f;
     private bool patternFinished = false;
-    private bool patternInProgress = false;
     private int nextPattern = 3;
 
     // Update is called once per frame

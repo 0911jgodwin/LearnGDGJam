@@ -1,5 +1,3 @@
-using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -16,7 +14,6 @@ public class MainMenu : MonoBehaviour
     private int _selectedIndex = 0;
     private float navigationSpeed = 0.3f;
     private float navigationLockout = 0f;
-    private bool soundOptionsOpen = false;
     public List<Button> MenuButtons;
     public bool optionsOpen = false;
 

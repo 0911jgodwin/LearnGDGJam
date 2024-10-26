@@ -19,7 +19,6 @@ public class OptionsMenu : MonoBehaviour
     private int _selectedIndex = 0;
     private float navigationSpeed = 0.3f;
     private float navigationLockout = 0f;
-    private bool wasPlaying = false;
 
     private void Awake()
     {

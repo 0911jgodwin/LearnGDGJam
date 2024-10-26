@@ -19,6 +19,6 @@ public class IntroMenu : MonoBehaviour
 
     void TriggerStory()
     {
-        trigger.TriggerDialogue(fader.Fading("Test Level"));
+        trigger.TriggerDialogue(fader.Fading("TestLevel"));
     }
 }
