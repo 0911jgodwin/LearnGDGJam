@@ -19,7 +19,7 @@ public class Boss : MonoBehaviour
     void Start()
     {
         shield = transform.GetChild(0);
-        GetComponent<Health>().SetHealth(100f);
+        GetComponent<Health>().SetHealth(35f);
     }
 
     private void Update()
@@ -39,7 +39,7 @@ public class Boss : MonoBehaviour
             
         if (SpiralFiring && currentFireLockout <= 0f)
         {
-            currentFireLockout = 0.2f;
+            currentFireLockout = 0.3f;
             SpiralFire();
         }
 
@@ -51,7 +51,7 @@ public class Boss : MonoBehaviour
 
         if (WaveFiring && currentFireLockout <= 0f)
         {
-            currentFireLockout = 0.2f;
+            currentFireLockout = 0.35f;
             WaveFire();
         }
     }
@@ -131,9 +131,9 @@ public class Boss : MonoBehaviour
             bul.SetActive(true);
         }
 
-        angle += 10f;
+        angle += 20f;
 
-        if (angle >= 540)
+        if (angle >= 360)
             patternFinished = true;
     }
 }

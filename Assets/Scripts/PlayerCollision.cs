@@ -20,10 +20,22 @@ namespace Learn.PlayerController
         void Update()
         {
             onGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, collisionRadius, groundLayer);
-            onWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer)
-                  || Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
-            onLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, groundLayer);
-            onRightWall = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, groundLayer);
+            onWall = CheckWalls(leftOffset)
+                  || CheckWalls(rightOffset);
+            onLeftWall = CheckWalls(leftOffset);
+            onRightWall = CheckWalls(rightOffset);
+        }
+
+        bool CheckWalls(Vector2 offset)
+        {
+            if(Physics2D.OverlapCircle((Vector2)transform.position + offset, collisionRadius, groundLayer))
+            {
+                Collider2D collider = Physics2D.OverlapCircle((Vector2)transform.position + offset, collisionRadius, groundLayer);
+                if (collider.CompareTag("Passthrough"))
+                    return false;
+                else return true;
+            }
+            return false;
         }
 
         private void OnDrawGizmos()

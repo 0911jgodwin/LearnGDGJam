@@ -5,7 +5,7 @@ public class RespawnManager : MonoBehaviour
 {
     private Vector2 spawnPosition;
     private Rigidbody2D _rb;
-
+    public float playerHealth = 3f;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -37,6 +37,13 @@ public class RespawnManager : MonoBehaviour
         spawnPosition = newSpawn;
     }
 
+    public void Damage(float damage)
+    {
+        playerHealth -= damage;
+        if (playerHealth <= 0f)
+            Die();
+    }
+
     IEnumerator Respawn(float duration)
     {
         _rb.simulated = false;
@@ -46,5 +53,6 @@ public class RespawnManager : MonoBehaviour
         yield return new WaitForSeconds(duration);
         _rb.simulated = true;
         transform.localScale = new Vector3(1, 1, 1);
+        playerHealth = 3f;
     }
 }

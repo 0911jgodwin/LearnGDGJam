@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
     {
         totalHealth -= value;
 
-        if (totalHealth < 0f)
+        if (totalHealth <= 0f)
             DestroySelf();
     }
 
