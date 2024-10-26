@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 1976818882077203507}
   - component: {fileID: 3318035055665377396}
   - component: {fileID: 5630883737847855518}
+  - component: {fileID: 3159071623149878704}
   m_Layer: 0
   m_Name: Ghost
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -196,3 +197,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3159071623149878704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9005911959201094292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c575e4e40c5908c4f8bcd81c4132a10f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

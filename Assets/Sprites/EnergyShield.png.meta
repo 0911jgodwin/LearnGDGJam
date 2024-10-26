@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 724f3a170cb36f74598b2892601d12df
+guid: 3db2540670ff13b45b32b5d2cc405d66
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5693483934522329529
-    second: SpellSprite_0
-  - first:
-      213: -7971885400894341624
-    second: SpellSprite_1
-  - first:
-      213: 2860387035121760633
-    second: SpellSprite_2
-  - first:
-      213: 6834022250458905468
-    second: SpellSprite_3
-  - first:
-      213: 1040286647759671856
-    second: SpellSprite_4
+      213: -1988710036292870707
+    second: EnergyShield_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
+  alignment: 8
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -138,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpellSprite_0
+      name: EnergyShield_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 8
-        width: 17
-        height: 22
+        x: 0
+        y: 0
+        width: 236
+        height: 236
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,96 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7463764e68eacf0b0800000000000000
-      internalID: -5693483934522329529
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpellSprite_1
-      rect:
-        serializedVersion: 2
-        x: 62
-        y: 8
-        width: 17
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 80ef199f67c2e5190800000000000000
-      internalID: -7971885400894341624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpellSprite_2
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 7
-        width: 16
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 979b09c7ad222b720800000000000000
-      internalID: 2860387035121760633
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpellSprite_3
-      rect:
-        serializedVersion: 2
-        x: 159
-        y: 12
-        width: 16
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c7bf7b1570357de50800000000000000
-      internalID: 6834022250458905468
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpellSprite_4
-      rect:
-        serializedVersion: 2
-        x: 207
-        y: 12
-        width: 16
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0321c48c137df6e00800000000000000
-      internalID: 1040286647759671856
+      spriteID: dcd528532cea664e0800000000000000
+      internalID: -1988710036292870707
       vertices: []
       indices: 
       edges: []
@@ -251,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -261,11 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SpellSprite_0: -5693483934522329529
-      SpellSprite_1: -7971885400894341624
-      SpellSprite_2: 2860387035121760633
-      SpellSprite_3: 6834022250458905468
-      SpellSprite_4: 1040286647759671856
+      EnergyShield_0: -1988710036292870707
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
