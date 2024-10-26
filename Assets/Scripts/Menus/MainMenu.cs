@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
     {
         fader = GetComponent<Fader>();
         EventSystem.current.SetSelectedGameObject(MenuButtons[_selectedIndex].gameObject, new BaseEventData(EventSystem.current));
+        AudioManager.i.PlayMusic("Theme");
     }
 
     void Update()
