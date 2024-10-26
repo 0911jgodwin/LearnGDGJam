@@ -1,13 +1,17 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Enabler : MonoBehaviour
 {
-    public GameObject gameObjectToEnable;
+    public List<GameObject> gameObjectsToEnable;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            gameObjectToEnable.SetActive(true);
+            foreach (GameObject obj in gameObjectsToEnable)
+            {
+                obj.SetActive(true);
+            }
         }
     }
 }
