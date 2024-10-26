@@ -172,6 +172,7 @@ namespace Learn.PlayerController
 
         private void WallJump()
         {
+            AudioManager.i.PlaySfx("Surface");
             if ((side == 1 && _playerCollision.onRightWall) || side == -1 && !_playerCollision.onRightWall)
             {
                 side *= -1;
@@ -195,6 +196,7 @@ namespace Learn.PlayerController
 
         private void FireSpell()
         {
+            AudioManager.i.PlaySfx("Fireball");
             lastShotFiredTime = reloadSpeed;
             Projectile shot = Instantiate(_projectilePrefab, _targetingReticule.transform.GetChild(0).transform.position, _targetingReticule.transform.rotation);
             shot.SetDirection(_targetingReticule.transform.GetChild(0).transform.position-transform.position);
@@ -202,6 +204,7 @@ namespace Learn.PlayerController
 
         IEnumerator DashLockout(Vector2 direction)
         {
+            AudioManager.i.PlaySfx("Dash");
             _playerAnimation.SetTrigger("dash");
             isDashing = true;
             hasDashed = true;

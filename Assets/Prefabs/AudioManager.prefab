@@ -307,11 +307,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSounds:
-  - name: LevelMusic
-    clip: {fileID: 8300000, guid: 0ad591428b0c18c4da51fe3bf98dbc63, type: 3}
-  - name: BossMusic
-    clip: {fileID: 8300000, guid: 51a4f1157b7ff1449b5e5cf064d584c7, type: 3}
-  sfxSounds: []
+  - name: Theme
+    clip: {fileID: 8300000, guid: afabfec67cbb3d1499ae0e7c19b5579f, type: 3}
+  sfxSounds:
+  - name: Dash
+    clip: {fileID: 8300000, guid: e1922f9a2930b334abf11abbae814cc8, type: 3}
+  - name: Death
+    clip: {fileID: 8300000, guid: 1c121b388d9d2fe41a9985691cb6566f, type: 3}
+  - name: Fireball
+    clip: {fileID: 8300000, guid: 612c49131a5cb434c8e06f3e5ee5b584, type: 3}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 1da594299ee4fcf48878784c798baa77, type: 3}
+  - name: Surface
+    clip: {fileID: 8300000, guid: f7576f889e9e5f9479ff4828329f1645, type: 3}
+  - name: Theme
+    clip: {fileID: 8300000, guid: afabfec67cbb3d1499ae0e7c19b5579f, type: 3}
   voiceSounds:
   - name: PlayerVoice
     clip: {fileID: 8300000, guid: 31ba489423d6cba46bf530ff1db1e6c7, type: 3}
@@ -323,6 +333,7 @@ MonoBehaviour:
   sfxSource: {fileID: 9141539033652916807}
   voiceSource: {fileID: 7442334297582187}
   typingSound: {fileID: 8300000, guid: 31ba489423d6cba46bf530ff1db1e6c7, type: 3}
+  EntryTrack: {fileID: 0}
 --- !u!81 &2678306626457913446
 AudioListener:
   m_ObjectHideFlags: 0
