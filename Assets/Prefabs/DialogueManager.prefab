@@ -49,6 +49,7 @@ MonoBehaviour:
   nameText: {fileID: 7041037243333633670}
   dialogueText: {fileID: 5530956924224773455}
   lettersPerSecond: 100
+  playerInput: {fileID: 0}
   DialogueBox: {fileID: 3767374851826827927}
 --- !u!1 &3059654507056019345
 GameObject:

@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.i.PlayMusic("Music");
         fader = GetComponent<Fader>();
     }
     void Update()

@@ -70,8 +70,47 @@ namespace Learn.PlayerController
         {
             if (!context.performed)
                 return;
+<<<<<<< Updated upstream
             PlayerInputManager.Instance.PlayerControls.PlayerMovementMap.Disable();
             PlayerInputManager.Instance.PlayerControls.MenuMap.Enable();
+=======
+            SceneManager.LoadSceneAsync("OptionsMenu", LoadSceneMode.Additive);
+        }
+
+        public void OnAim(InputAction.CallbackContext context)
+        {
+            if (!context.performed)
+                return;
+            AimInput = context.ReadValue<Vector2>();
+        }
+
+        public void OnMouseAim(InputAction.CallbackContext context)
+        {
+            if (!context.performed)
+                return;
+            Vector2 worldPos = PlayerCamera.ScreenToWorldPoint(context.ReadValue<Vector2>());
+            AimInput = new Vector3(worldPos.x, worldPos.y, 0) - transform.position;
+        }
+
+        public void OnShoot(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                ShootPressed = true;
+                ShootHeld = true;
+            }
+            else if (context.canceled)
+            {
+                ShootHeld = false;
+            }
+        }
+
+        public void OnSubmit(InputAction.CallbackContext context)
+        {
+            if (!context.performed)
+                return;
+            SubmitPressed = true;
+>>>>>>> Stashed changes
         }
     }
 }

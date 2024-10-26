@@ -131,6 +131,11 @@ namespace Learn.PlayerController
 
         private void Jump(Vector2 direction)
         {
+<<<<<<< Updated upstream
+=======
+            AudioManager.i.PlaySfx("Jump");
+            _playerAnimation.SetTrigger("jump");
+>>>>>>> Stashed changes
             float force = jumpForce;
             //counteracting falling speed to help ensure our jump works as expected
             if (_rb.linearVelocityY < 0)
@@ -151,6 +156,7 @@ namespace Learn.PlayerController
 
         private void WallJump()
         {
+            AudioManager.i.PlaySfx("Surface");
             if ((side == 1 && _playerCollision.onRightWall) || side == -1 && !_playerCollision.onRightWall)
             {
                 side *= -1;
@@ -165,6 +171,11 @@ namespace Learn.PlayerController
 
         IEnumerator DashLockout(Vector2 direction)
         {
+<<<<<<< Updated upstream
+=======
+            AudioManager.i.PlaySfx("Dash");
+            _playerAnimation.SetTrigger("dash");
+>>>>>>> Stashed changes
             isDashing = true;
             hasDashed = true;
             bool isFancyJumping = FancyJumpingEnabled;

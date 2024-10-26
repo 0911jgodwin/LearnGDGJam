@@ -12,6 +12,131 @@ public class OptionsMenu : MonoBehaviour
     public Text musicVolume;
     public Text sfxVolume;
     public Text voiceVolume;
+<<<<<<< Updated upstream
+=======
+
+    public Image muteVolume;
+    public Image muteSfx;
+    public Image muteVoice;
+
+    private int _selectedIndex = 0;
+    private float navigationSpeed = 0.3f;
+    private float navigationLockout = 0f;
+    private bool wasPlaying = false;
+
+    private void Awake()
+    {
+        _menuInput = GetComponent<MenuInput>();
+        PlayerInputManager.Instance.OptionsOpen = true;
+        MenuItems = new List<Selectable>();
+    }
+
+    private void Start()
+    {
+        MenuItems.Add(_musicSlider);
+        MenuItems.Add(_sfxSlider);
+        MenuItems.Add(_voiceSlider);
+        MenuItems.Add(_exitButton);
+
+        PlayerInputManager.Instance.PlayerControls.PlayerMovementMap.Disable();
+        PlayerInputManager.Instance.PlayerControls.MenuMap.Enable();
+        EventSystem.current.SetSelectedGameObject(MenuItems[_selectedIndex].gameObject, new BaseEventData(EventSystem.current));
+    }
+
+    private void Update()
+    {
+        navigationLockout -= Time.deltaTime;
+        if (navigationLockout <= 0f && _menuInput.NavigationInput != Vector2.zero)
+        {
+            navigationLockout = navigationSpeed;
+            Navigate(_menuInput.NavigationInput);
+        }
+
+        if (_menuInput.SelectPressed)
+        {
+            SelectButton();
+        }
+    }
+
+    private void Navigate(Vector2 navigationInput)
+    {
+        if (0 <= _selectedIndex && _selectedIndex <= 2)
+        {
+            if (navigationInput.x < 0)
+                ChangeValue(_selectedIndex, -1);
+            else if (navigationInput.x > 0)
+                ChangeValue(_selectedIndex, 1);
+        }
+
+        if (navigationInput.y < 0f)
+            _selectedIndex += 1;
+        if (navigationInput.y > 0f)
+            _selectedIndex -= 1;
+
+        if (_selectedIndex <= -1)
+            _selectedIndex = 3;
+
+        if (_selectedIndex >= 4)
+            _selectedIndex = 0;
+
+        EventSystem.current.SetSelectedGameObject(MenuItems[_selectedIndex].gameObject, new BaseEventData(EventSystem.current));
+    }
+
+    private void ChangeValue(int index, int v)
+    {
+        Slider slider = null;
+        switch (index)
+        {
+            case 0:
+                slider = _musicSlider;
+                break;
+            case 1:
+                slider = _sfxSlider;
+                break;
+            case 2:
+                slider = _voiceSlider;
+                break;
+        }
+
+        float value = slider.value;
+        value = Mathf.Clamp(value + v, 0f, 10f);
+
+        slider.value = value;
+
+        switch (index)
+        {
+            case 0:
+                slider = _musicSlider;
+                break;
+            case 1:
+                slider = _sfxSlider;
+                break;
+            case 2:
+                slider = _voiceSlider;
+                break;
+        }
+    }
+
+    private void SelectButton()
+    {
+        switch (_selectedIndex)
+        {
+            case 0:
+                ToggleMusic();
+                break;
+            case 1:
+                ToggleSfx();
+                break;
+            case 2:
+                ToggleVoice();
+                break;
+            case 3:
+                Return();
+                break;
+        }
+    }
+
+>>>>>>> Stashed changes
     public void ToggleMusic()
     {
         float volume = AudioManager.i.musicSource.volume * 10;
@@ -19,12 +144,13 @@ public class OptionsMenu : MonoBehaviour
         if (AudioManager.i.musicSource.mute)
         {
             musicVolume.text = "0";
+            muteVolume.enabled = true;
         }
         else
         {
             musicVolume.text = $"{volume}";
+            muteVolume.enabled = false;
         }
-
     }
     public void ToggleSfx()
     {
@@ -33,10 +159,12 @@ public class OptionsMenu : MonoBehaviour
         if (AudioManager.i.sfxSource.mute)
         {
             sfxVolume.text = "0";
+            muteSfx.enabled = true;
         }
         else
         {
             sfxVolume.text = $"{volume}";
+            muteSfx.enabled = false;
         }
     }
     public void ToggleVoice()
@@ -46,10 +174,12 @@ public class OptionsMenu : MonoBehaviour
         if (AudioManager.i.voiceSource.mute)
         {
             voiceVolume.text = "0";
+            muteVoice.enabled = true;
         }
         else
         {
             voiceVolume.text = $"{volume}";
+            muteVoice.enabled = false;
         }
     }
     public void MusicVolume()
