@@ -7,12 +7,5 @@ public class LevelScene : MonoBehaviour
     private void Start()
     {
         fader = GetComponent<Fader>();
-        TriggerStory();
     }
-
-    void TriggerStory()
-    {
-        trigger.TriggerDialogue();
-    }
-
 }
