@@ -85,7 +85,7 @@ public class DialogueManager : MonoBehaviour
             nameText.text = name;
             dialogueText.text = "";
 
-            if (name == "Teacher")
+            if (name == "Teacher" || name == "Darth")
             {
                 AudioManager.i.PlayVoice(clip);
             }

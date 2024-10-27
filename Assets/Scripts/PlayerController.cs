@@ -61,6 +61,7 @@ namespace Learn.PlayerController
 
             if (ChattingAway)
             {
+                _playerAnimation.ResetMovementValues();
                 _rb.linearVelocity = Vector2.zero;
                 return;
             }
@@ -131,6 +132,7 @@ namespace Learn.PlayerController
         {
             if (ChattingAway)
             {
+                _playerAnimation.ResetMovementValues();
                 _rb.linearVelocity = Vector2.zero;
                 return;
             }

@@ -50,6 +50,13 @@ namespace Learn.PlayerController
             _animator.SetFloat(verticalVelocityHash, yVelocity);
         }
 
+        public void ResetMovementValues()
+        {
+            _animator.SetFloat(inputXHash, 0);
+            _animator.SetFloat(inputYHash, 0);
+            _animator.SetFloat(verticalVelocityHash, 0);
+        }
+
         public void SetTrigger(string trigger)
         {
             _animator.SetTrigger(trigger);
