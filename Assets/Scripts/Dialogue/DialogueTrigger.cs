@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Learn.PlayerController;
+using UnityEngine.SceneManagement;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class DialogueTrigger : MonoBehaviour
     public bool bestowsAbility = false;
     public int abilityToBestow = 0;
     private GameObject player;
+    public bool finishDialogue = false;
 
     public GameObject obj;
 
@@ -40,18 +42,32 @@ public class DialogueTrigger : MonoBehaviour
         yield return player;
     }
 
+    IEnumerator EndGame()
+    {
+        
+        yield return player;
+        SceneManager.LoadScene("ReplayScene");
+        Debug.Log("Test");
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !isRepeat)
         {
             player = collision.gameObject;
             player.GetComponent<PlayerController>().ChattingAway = true;
-            if (!bestowsAbility)
+            if (finishDialogue)
+                TriggerDialogue(EndGame());
+            else
             {
-                TriggerDialogue();
-            } else
-            {
-                TriggerDialogue(SetAbilityActive(player));
+                if (!bestowsAbility)
+                {
+                    TriggerDialogue();
+                }
+                else
+                {
+                    TriggerDialogue(SetAbilityActive(player));
+                }
             }
             obj.SetActive(false);
         }

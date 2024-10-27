@@ -18,7 +18,7 @@ public class ReplayMenu : MonoBehaviour
 
     private void Awake()
     {
-        _menuInput = GetComponent<MenuInput>();
+        _menuInput = PlayerInputManager.Instance.GetMenuInput();
     }
 
     private void Start()

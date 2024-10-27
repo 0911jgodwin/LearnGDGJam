@@ -987,6 +987,18 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!114 &1371446605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371446599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e66f7d6e7dc71ca40ba17fca169fa988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1521239393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,6 +1137,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7388006787678335358, guid: 55f13c7f561f89e4bbac003cb11b79bd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1371446602}
+    - targetCorrespondingSourceObject: {fileID: 7388006787678335358, guid: 55f13c7f561f89e4bbac003cb11b79bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1371446605}
   m_SourcePrefab: {fileID: 100100000, guid: 55f13c7f561f89e4bbac003cb11b79bd, type: 3}
 --- !u!1 &1794779204
 GameObject:
@@ -1405,7 +1420,6 @@ GameObject:
   - component: {fileID: 2068170491}
   - component: {fileID: 2068170489}
   - component: {fileID: 2068170490}
-  - component: {fileID: 2068170495}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1554,18 +1568,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2068170495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2068170488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e66f7d6e7dc71ca40ba17fca169fa988, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1206190075176871324
 GameObject:
   m_ObjectHideFlags: 0

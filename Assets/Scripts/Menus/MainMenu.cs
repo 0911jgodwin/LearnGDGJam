@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        _menuInput = GetComponent<MenuInput>();
+        _menuInput = PlayerInputManager.Instance.GetMenuInput();
     }
 
     private void Start()

@@ -26,7 +26,7 @@ public class OptionsMenu : MonoBehaviour
 
     private void Awake()
     {
-        _menuInput = GetComponent<MenuInput>();
+        _menuInput = PlayerInputManager.Instance.GetMenuInput();
         PlayerInputManager.Instance.OptionsOpen = true;
         MenuItems = new List<Selectable>();
     }
