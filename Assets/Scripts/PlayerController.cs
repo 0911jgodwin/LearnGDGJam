@@ -28,6 +28,7 @@ namespace Learn.PlayerController
         public bool WallSlidingEnabled = false;
         public bool DashingEnabled = false;
         public bool ShootingEnabled = false;
+        public bool ChattingAway = false;
 
         [Header("Fall Options")]
         public float fallMultiplier = 2.5f;
@@ -57,6 +58,14 @@ namespace Learn.PlayerController
         // Update is called once per frame
         void Update()
         {
+
+            if (ChattingAway)
+            {
+                _playerAnimation.ResetMovementValues();
+                _rb.linearVelocity = Vector2.zero;
+                return;
+            }
+
             _playerAnimation.SetMovementValues(_playerMovementInput.MovementInput, _rb.linearVelocityY);
             UpdateAim();
 
@@ -121,6 +130,13 @@ namespace Learn.PlayerController
 
         private void FixedUpdate()
         {
+            if (ChattingAway)
+            {
+                _playerAnimation.ResetMovementValues();
+                _rb.linearVelocity = Vector2.zero;
+                return;
+            }
+
             Run(_playerMovementInput.MovementInput);
 
             if (!_playerCollision.onWall || _playerCollision.onGround || !canMove)
@@ -254,9 +270,13 @@ namespace Learn.PlayerController
                     break;
                 case 2:
                     FancyJumpingEnabled = true;
+                    if (!BasicJumpingEnabled)
+                        BasicJumpingEnabled = true;
                     break;
                 case 3:
                     WallJumpingEnabled = true;
+                    if (!WallSlidingEnabled)
+                        WallSlidingEnabled = true;
                     break;
                 case 4:
                     WallSlidingEnabled = true;

@@ -34,6 +34,11 @@ namespace Learn.PlayerController
         {
             PlayerControls.Disable();
         }
+
+        public MenuInput GetMenuInput()
+        {
+            return GetComponent<MenuInput>();
+        }
     }
 }
 

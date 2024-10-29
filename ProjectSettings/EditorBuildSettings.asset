@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OptionsMenu.unity
     guid: ab0abdffba38b3642a7f33cf981ca5a9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PauseMenu.unity
     guid: 33748964810fa4f41adf2ed899554852
   - enabled: 0
@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestLevel.unity
     guid: e200024de6c6a7343a346de9125feaa6
+  - enabled: 1
+    path: Assets/Scenes/ReplayScene.unity
+    guid: fadf6b65966816344bebd77bf09b1513
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: af5f4159b80e3b24f9a902f48631d5e2, type: 3}
   m_UseUCBPForAssetBundles: 0

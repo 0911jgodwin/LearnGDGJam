@@ -160,6 +160,8 @@ MonoBehaviour:
   WallJumpingEnabled: 1
   WallSlidingEnabled: 1
   DashingEnabled: 1
+  ShootingEnabled: 0
+  ChattingAway: 0
   fallMultiplier: 3
   lowJumpMultiplier: 8
   canMove: 1
@@ -240,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 541495da94ad5874bbf6e490658a3c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHealth: 3
 --- !u!70 &8561909901641467127
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -127,7 +127,7 @@
                 },
                 {
                     "name": "",
-                    "id": "d5ff1f2d-b314-408c-8eed-49efaeedfc01",
+                    "id": "3ba84378-88d9-463e-94a0-62c1d731e728",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
@@ -360,7 +360,7 @@
                 },
                 {
                     "name": "",
-                    "id": "d257cbaa-af1d-4464-8fad-26e4e059c115",
+                    "id": "bbf8482c-24a8-4a15-be1c-a9f94ee20e11",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",

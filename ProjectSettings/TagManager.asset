@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Enemy
   - Passthrough
+  - Dialogue
   layers:
   - Default
   - TransparentFX

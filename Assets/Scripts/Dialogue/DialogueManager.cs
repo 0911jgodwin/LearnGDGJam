@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     public PlayerMovementInput playerInput;
     float musicVolume;
     bool lastSentence = false;
+    bool typing = false;
 
     [SerializeField] GameObject DialogueBox;
     private Queue<string> sentences;
@@ -23,7 +24,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (playerInput.SubmitPressed && !lastSentence)
+        if (playerInput.SubmitPressed && !lastSentence && !typing)
         {
             AudioManager.i.StopVoice();
             DisplayNextSentence();
@@ -37,7 +38,6 @@ public class DialogueManager : MonoBehaviour
     }
     public void StartDialogue(Dialogue dialogue)
     {
-        Debug.Log("Dialogue Started");
         musicVolume = AudioManager.i.musicSource.volume * 10;
         AudioManager.i.MusicVolume(musicVolume / 5);
         StartCoroutine(EnterBox());
@@ -85,15 +85,13 @@ public class DialogueManager : MonoBehaviour
             nameText.text = name;
             dialogueText.text = "";
 
-            if (name == "Teacher")
+            if (name == "Teacher" || name == "Darth")
             {
                 AudioManager.i.PlayVoice(clip);
-                Debug.Log("Teacher Voice");
             }
             else
             {
                 StartCoroutine(AudioManager.i.PlayTyping(sentence.Length, lettersPerSecond));
-                Debug.Log("Student Voice");
             }
 
             StartCoroutine(TypeSentence(sentence));
@@ -102,18 +100,19 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeSentence (string sentence)
     {
+        typing = true;
         foreach (char letter in sentence.ToCharArray()) 
         { 
             dialogueText.text += letter;
             yield return new WaitForSeconds(1f / lettersPerSecond);
         }
+        typing = false;
     }
 
     void EndDialogue()
     {
         
         StartCoroutine(ExitBox());
-        Debug.Log("End of Conversation");
         AudioManager.i.MusicVolume(musicVolume);
         if (triggerCoroutine != null)
         {

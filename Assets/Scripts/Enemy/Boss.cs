@@ -14,6 +14,7 @@ public class Boss : MonoBehaviour
     public float patternLockout = 4f;
     private bool patternFinished = false;
     private int nextPattern = 3;
+    public GameObject onDeath;
 
     // Update is called once per frame
     void Start()
@@ -135,5 +136,10 @@ public class Boss : MonoBehaviour
 
         if (angle >= 360)
             patternFinished = true;
+    }
+
+    private void OnDisable()
+    {
+        onDeath.SetActive(true);
     }
 }
