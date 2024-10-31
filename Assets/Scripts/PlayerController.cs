@@ -146,7 +146,7 @@ namespace Learn.PlayerController
 
             if (_playerCollision.onWall && !_playerCollision.onGround)
             {
-                if (_playerMovementInput.MovementInput.x != 0)
+                if (_playerMovementInput.MovementInput.x != 0 && WallSlidingEnabled)
                 {
                     wallSliding = true;
                     WallSlide();

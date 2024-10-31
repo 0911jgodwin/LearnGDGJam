@@ -33,7 +33,7 @@ public class Ghost : MonoBehaviour
     private Material debugLineMaterialGreen;
     private Material debugLineMaterialOrange;
 
-    void Start()
+    void Awake()
     {
         animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
@@ -46,6 +46,9 @@ public class Ghost : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.GameObject().GetComponent<RespawnManager>().Damage(3f);
+            Destroy(gameObject);
+        } else if (collision.CompareTag("NoGhostZone"))
+        {
             Destroy(gameObject);
         }
     }
